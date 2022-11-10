@@ -21,6 +21,9 @@ body{
     border-bottom: 10px solid black;
     border-right: 10px solid black;
 }
+.redBright{
+    background-color: rgb(255, 0, 0);
+}
 .red:hover{
     background-color: rgb(255, 0, 0);
 }
@@ -35,6 +38,9 @@ body{
 .green:hover{
     background-color: rgba(0,255,0,.8);
 }
+.greenBright{
+    background-color: rgba(0,255,0,.8);
+}
 .blue{
     box-sizing: border-box;
     background-color: rgba(0, 64, 255, 0.799);
@@ -44,7 +50,10 @@ body{
     border-bottom: 10px solid black;
 }
 .blue:hover{
-    background-color: blue
+    background-color: blue;
+}
+.blueBright{
+    background-color: blue;
 }
 .yellow{
     box-sizing: border-box;
@@ -55,6 +64,9 @@ body{
     border-top: 10px solid black;
 }
 .yellow:hover{
+    background-color: yellow;
+}
+.yellowBright{
     background-color: yellow;
 }
 .inner_space{

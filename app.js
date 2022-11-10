@@ -57,42 +57,92 @@ randColor()
 randColor()
 console.log(currGameList)
 
+//1.5 function to play the curr level back to user
+function playList(arr){
+    console.log(`the current game list is ${currGameList}`)
+    let c=0;
+    let interval = setInterval(function(){
+        if (arr[c]==='red'){
+            redAudio.play()
+            red.classList.toggle('redBright');
+            setTimeout(function(){
+                red.classList.toggle('redBright');
+            },400)
+            
+        }else if(arr[c]==='blue'){
+            blueAudio.play();
+            blue.classList.toggle('blueBright');
+            setTimeout(function(){
+                blue.classList.toggle('blueBright');
+            },400)
+        }else if(arr[c]==='yellow'){
+            yellowAudio.play()
+            yellow.classList.toggle('yellowBright');
+            setTimeout(function(){
+                yellow.classList.toggle('yellowBright');
+            },400)
+        }else if (arr[c]==='green'){
+            greenAudio.play();
+            green.classList.toggle('greenBright');
+            setTimeout(function(){
+                green.classList.toggle('greenBright');
+            },400)
+        }
+        c++
+        if (c=== arr.length)clearInterval(interval);
+    },1000)
+    }
+
+
+    playList(currGameList)
+//**************************************************************** */
 //function for playing back the level to the user
 // takes in an array of the current game list
-let index = 0
-function colorPlayback(arr){
+// used promises to get sounds to work but i think call backs are
+//simpler in this case
+// let index = 0
+// function colorPlayback(arr){
     
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-          console.log(index) 
-          
-          if (currGameList[index]==="red"){
-            console.log('red')
-            redAudio.play()
-            index++
-          }else if (currGameList[index]==="blue"){
-                blueAudio.play()
-                console.log('blue')
-                index++
-          }else if (currGameList[index]==="green"){
-                greenAudio.play()
-                console.log('green')
-                index++
-          }else if (currGameList[index]==="yellow"){
-                yellowAudio.play()
-                console.log('yellow')
-                index++
-          }
-          
-          resolve()
-        },1000)
-    })
-}
-colorPlayback()
-    .then(()=> colorPlayback())
-    .then(()=> colorPlayback())
-    .then(()=> colorPlayback())
-    
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(()=>{
+//             if (currGameList[index]==="red"){
+//             red.classList.toggle('redBright')
+//             setTimeout(()=>{
+//                 red.classList.toggle("redBright")
+//             },800)
+//             redAudio.play()
+//             index++
+//           }else if (currGameList[index]==="blue"){
+//                 blue.classList.toggle('blueBright')
+//                 setTimeout(()=>{
+//                     blue.classList.toggle("blueBright")
+//                 },800)
+//                 blueAudio.play()
+//                 index++
+//           }else if (currGameList[index]==="green"){
+//                 green.classList.toggle('greenBright')
+//                 setTimeout(()=>{
+//                     green.classList.toggle("greenBright")
+//                 },800)
+//                 greenAudio.play()
+//                 index++
+//           }else if (currGameList[index]==="yellow"){
+//                 yellow.classList.toggle('yellowBright')
+//                 setTimeout(()=>{
+//                     yellow.classList.toggle("yellowBright")
+//                 },800)
+//                 yellowAudio.play()
+//                 index++
+//           }
+//           resolve()
+//         },1000)
+//     })
+// }
+// colorPlayback()
+//     .then(()=> colorPlayback()) 
+//     .then(()=> colorPlayback())
+//     .then(()=> colorPlayback())
+//************************************************** */    
     
 
 
