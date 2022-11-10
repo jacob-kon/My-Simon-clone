@@ -22,6 +22,8 @@ let score = document.querySelector('.score');
 let heading = document.querySelector('.heading')
 
 
+
+
 // selectors for the game buttons
 let red = document.querySelector(".red")
 let blue = document.querySelector(".blue")
@@ -138,39 +140,103 @@ function randColor(){
 
 //1.5 function to play the curr level back to user
 function playList(arr){
+    setTimeout(()=>{
+        console.log('get ready for next level')
+    },1000)
     console.log(`the current game list is ${currGameList}`)
     let c=0;
+    let soundSpeed = 1 // plays sound at normal speed
+    let lightSpeed = 400 // lights up for .4 of a second
+    let intervalSpeed =1000 //interval between colors in 1 sec
+    if (userScore < 4){
+        soundSpeed = 1 // plays sound at normal speed
+        lightSpeed = 400 // lights up for .4 of a second
+        intervalSpeed =1000 //interval between colors in 1 sec
+    }else if(userScore >=4 && userScore < 8){
+        soundSpeed = 1.3 // plays sound faster
+        lightSpeed = 250 // lights up for less time
+        intervalSpeed =700 //interval between colors in .7 sec
+    }else if (userScore >= 8 && userScore <12){
+        soundSpeed = 1.4 // plays sound faster
+        lightSpeed = 200 // lights up for less time
+        intervalSpeed =550 //interval between colors in .55 sec
+    }else{
+        soundSpeed = 1.7 // plays sound faster
+        lightSpeed = 160 // lights up for less time
+        intervalSpeed =400 //interval between colors in .4 sec
+    }
+    redAudio.playbackRate = soundSpeed
+    blueAudio.playbackRate = soundSpeed
+    yellowAudio.playbackRate = soundSpeed
+    greenAudio.playbackRate = soundSpeed
+
     let interval = setInterval(function(){
         if (arr[c]==='red'){
             redAudio.play()
             red.classList.toggle('redBright');
             setTimeout(function(){
                 red.classList.toggle('redBright');
-            },400)
+            },lightSpeed)
             
         }else if(arr[c]==='blue'){
             blueAudio.play();
             blue.classList.toggle('blueBright');
             setTimeout(function(){
                 blue.classList.toggle('blueBright');
-            },400)
+            },lightSpeed)
         }else if(arr[c]==='yellow'){
             yellowAudio.play()
             yellow.classList.toggle('yellowBright');
             setTimeout(function(){
                 yellow.classList.toggle('yellowBright');
-            },400)
+            },lightSpeed)
         }else if (arr[c]==='green'){
             greenAudio.play();
             green.classList.toggle('greenBright');
             setTimeout(function(){
                 green.classList.toggle('greenBright');
-            },400)
+            },lightSpeed)
         }
         c++
         if (c=== arr.length)clearInterval(interval);
-    },1000)
+    },intervalSpeed)
     }
+
+//1.5 function to play the curr level back to user working ver
+// function playList(arr){
+//     console.log(`the current game list is ${currGameList}`)
+//     let c=0;
+//     let interval = setInterval(function(){
+//         if (arr[c]==='red'){
+//             redAudio.play()
+//             red.classList.toggle('redBright');
+//             setTimeout(function(){
+//                 red.classList.toggle('redBright');
+//             },400)
+            
+//         }else if(arr[c]==='blue'){
+//             blueAudio.play();
+//             blue.classList.toggle('blueBright');
+//             setTimeout(function(){
+//                 blue.classList.toggle('blueBright');
+//             },400)
+//         }else if(arr[c]==='yellow'){
+//             yellowAudio.play()
+//             yellow.classList.toggle('yellowBright');
+//             setTimeout(function(){
+//                 yellow.classList.toggle('yellowBright');
+//             },400)
+//         }else if (arr[c]==='green'){
+//             greenAudio.play();
+//             green.classList.toggle('greenBright');
+//             setTimeout(function(){
+//                 green.classList.toggle('greenBright');
+//             },400)
+//         }
+//         c++
+//         if (c=== arr.length)clearInterval(interval);
+//     },1000)
+//     }
 
 // #2.5 function to empty an array
 function emptyArray(arr){

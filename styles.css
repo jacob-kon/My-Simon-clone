@@ -81,18 +81,18 @@ body{
 }
 .scoreHeading{
     display: inline-block;
-    font-size: 3em;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    font-size: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .heading{
     font-family: 'Anton', sans-serif;
-    font-size: 5em;
+    font-size: 3em;
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
    
 }
 button{
-    font-size: 3em;
+    font-size: 2em;
 }
