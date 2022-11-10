@@ -7,6 +7,7 @@ let currentChoise = 'none';
 let currentLevelList =[];
 let nextColorIndex =0;
 let checkTry =0;
+let userScore =0;
 
 
 //game sounds
@@ -17,7 +18,8 @@ let greenAudio = new Audio('sounds/green.mp3')
 let wrongAudio = new Audio('sounds/wrong.mp3')
 let endGame =document.querySelector('.endGame')
 let startGame =document.querySelector(".startGame")
-let score = document.querySelector('score');
+let score = document.querySelector('.score');
+let heading = document.querySelector('.heading')
 
 
 // selectors for the game buttons
@@ -180,8 +182,10 @@ function emptyArray(arr){
 
 // 2.8 function to reset all variables when game ends
 function gameEnded(){
+    heading.innerText ="GAME OVER"
     wrongAudio.play()
-    // score.innerText='GAME OVER';
+    userScore=0;
+    score.innerText=0;
     emptyArray(currGameList)
     emptyArray(currentLevelList);
     nextColorIndex =0;
@@ -200,11 +204,15 @@ function userInputCheck(){
         //and a new color is added to the current game list
         if (nextColorIndex === currGameList.length){
             console.log('randColor, playList and emptyArray on the currentLevelList are about to run in userINputCheck becase level was completed')
+            userScore++
+            score.innerText=userScore
+            console.log('new score is',score)
             //current level list array sould now be made empty
             emptyArray(currentLevelList);
             randColor();
             playList(currGameList);
             nextColorIndex=0;
+            //time mechanizim goes here
         }
     }else{
         console.log('sorry game over start again');
@@ -215,6 +223,7 @@ function userInputCheck(){
 
 //game code
 startGame.addEventListener('click',function(){
+    heading.innerText ="Simon"
     gameOver = false;
     console.log('start game button was clicked')
     console.log('gameOver = false')
@@ -225,25 +234,17 @@ startGame.addEventListener('click',function(){
         randColor()
         playList(currGameList)
     }else{
-        console.log('cant do that ')
+        console.log('cant do that in middle of game')
+        console.log('to end game you must click end game button')
     }
     
-    })
+})
+
+//need to add code to detect user idle to make game over if user 
+//doesnt respond in a given period of time.  found good article 
+//and bookmarked it.  leave this for last its not so simple
 
 
-
-//     //game code
-// startGame.addEventListener('click',function(){
-//     gameOver = false;
-//     console.log('start game button was clicked')
-//     console.log('gameOver = false')
-//     // score.innerText ='SCORE 0';
-    
-//     //add a color to list
-   
-//     randColor()
-//     playList(currGameList)
-//     })
 
 
 

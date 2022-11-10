@@ -1,5 +1,6 @@
 body{
-    background-color: #F7F7F7;
+    background-color: rgb(198, 166, 228);
+   
 }
 .game_button{
     width: 250px;
@@ -57,7 +58,7 @@ body{
 }
 .yellow{
     box-sizing: border-box;
-    background-color: rgba(255,255,0,.2);
+    background-color: rgba(255,255,0,.4);
     border-bottom-right-radius: 100%;
     border:20px solid black;
     border-left: 10px solid black;
@@ -77,4 +78,21 @@ body{
     top: 150px;
     left: 150px;
     border-radius: 50%;
+}
+.scoreHeading{
+    display: inline-block;
+    font-size: 3em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.heading{
+    font-family: 'Anton', sans-serif;
+    font-size: 5em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+   
+}
+button{
+    font-size: 3em;
 }
