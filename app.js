@@ -26,32 +26,15 @@ let blue = document.querySelector(".blue")
 let yellow = document.querySelector(".yellow")
 let green = document.querySelector(".green")
 
-//event listeners for color clicks
-// red.addEventListener('click',()=>{
-//     console.log('red was clicked')
-//     redAudio.play()
-// })
-// blue.addEventListener('click',()=>{
-//     console.log('blue was clicked')
-//     blueAudio.play()
-// })
-// yellow.addEventListener('click',()=>{
-//     console.log('yellow was clicked')
-//     yellowAudio.play()
-// })
-// green.addEventListener('click',()=>{
-//     console.log('green was clicked')
-//     greenAudio.play()
-// })
-
 
 //event listeners for color clicks
 red.addEventListener('click',function(){
-    // console.log(`playerList length: ${playerList.length}`)
-    // console.log(`current gamelist length: ${currGameList.length}`)
-    // console.log(`gameover: ${gameOver}`)
-    if (currGameList.length>currentLevelList.length && gameOver=== false){
+     if (currGameList.length>currentLevelList.length && gameOver=== false){
         console.log('clicked red')
+        red.classList.toggle('redBright');
+            setTimeout(function(){
+                red.classList.toggle('redBright');
+            },400)
         currentChoise = 'red';
         currentLevelList.push('red')
         userInputCheck();
@@ -68,6 +51,10 @@ red.addEventListener('click',function(){
 blue.addEventListener('click',function(){
     if (currGameList.length>currentLevelList.length && gameOver=== false){
         console.log('clicked blue')
+        blue.classList.toggle('blueBright');
+            setTimeout(function(){
+                blue.classList.toggle('blueBright');
+            },400)
         currentChoise = 'blue';
         currentLevelList.push('blue')
         userInputCheck();
@@ -83,6 +70,10 @@ blue.addEventListener('click',function(){
 yellow.addEventListener('click',function(){
     if (currGameList.length>currentLevelList.length && gameOver=== false){
         console.log('clicked yellow')
+        yellow.classList.toggle('yellowBright');
+            setTimeout(function(){
+                yellow.classList.toggle('yellowBright');
+            },400)
         currentChoise = 'yellow';
         currentLevelList.push('yellow')
         userInputCheck();
@@ -98,6 +89,10 @@ yellow.addEventListener('click',function(){
 green.addEventListener('click',function(){
     if (currGameList.length>currentLevelList.length && gameOver=== false){
         console.log('clicked green')
+        green.classList.toggle('greenBright');
+            setTimeout(function(){
+                green.classList.toggle('greenBright');
+            },400)
         currentChoise = 'green';
         currentLevelList.push('green')
         userInputCheck();
@@ -226,18 +221,37 @@ startGame.addEventListener('click',function(){
     // score.innerText ='SCORE 0';
     
     //add a color to list
-    randColor()
-    playList(currGameList)
+    if (currGameList.length === 0){
+        randColor()
+        playList(currGameList)
+    }else{
+        console.log('cant do that ')
+    }
+    
     })
 
 
 
-//     playList(currGameList)
+//     //game code
+// startGame.addEventListener('click',function(){
+//     gameOver = false;
+//     console.log('start game button was clicked')
+//     console.log('gameOver = false')
+//     // score.innerText ='SCORE 0';
+    
+//     //add a color to list
+   
 //     randColor()
-// randColor()
-// randColor()
-// randColor()
-// console.log(currGameList)
+//     playList(currGameList)
+//     })
+
+
+
+   
+
+
+
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     
 
