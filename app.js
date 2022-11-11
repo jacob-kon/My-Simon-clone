@@ -6,7 +6,7 @@ let levelComplete = false;
 let currentChoise = 'none';
 let currentLevelList =[];
 let nextColorIndex =0;
-let checkTry =0;
+// let checkTry =0;
 let userScore =0;
 
 
@@ -18,7 +18,7 @@ let greenAudio = new Audio('sounds/green.mp3')
 let wrongAudio = new Audio('sounds/wrong.mp3')
 let endGame =document.querySelector('.endGame')
 let startGame =document.querySelector(".startGame")
-let score = document.querySelector('.score');
+let scoreHeading = document.querySelector('.scoreHeading');
 let heading = document.querySelector('.heading')
 
 
@@ -113,10 +113,13 @@ green.addEventListener('click',function(){
 
 //event listner to end game at any time
 endGame.addEventListener('click',function(){
-    console.log('clicked end game');
-    gameOver=true;
-    gameEnded()
-    console.log(`value for gameOver is: ${gameOver}`)
+    if(gameOver === false){
+        console.log('clicked end game');
+        gameOver=true;
+        gameEnded()
+        console.log(`value for gameOver is: ${gameOver}`)
+    }
+
 })
 
 function randColor(){
@@ -202,42 +205,6 @@ function playList(arr){
     },intervalSpeed)
     }
 
-//1.5 function to play the curr level back to user working ver
-// function playList(arr){
-//     console.log(`the current game list is ${currGameList}`)
-//     let c=0;
-//     let interval = setInterval(function(){
-//         if (arr[c]==='red'){
-//             redAudio.play()
-//             red.classList.toggle('redBright');
-//             setTimeout(function(){
-//                 red.classList.toggle('redBright');
-//             },400)
-            
-//         }else if(arr[c]==='blue'){
-//             blueAudio.play();
-//             blue.classList.toggle('blueBright');
-//             setTimeout(function(){
-//                 blue.classList.toggle('blueBright');
-//             },400)
-//         }else if(arr[c]==='yellow'){
-//             yellowAudio.play()
-//             yellow.classList.toggle('yellowBright');
-//             setTimeout(function(){
-//                 yellow.classList.toggle('yellowBright');
-//             },400)
-//         }else if (arr[c]==='green'){
-//             greenAudio.play();
-//             green.classList.toggle('greenBright');
-//             setTimeout(function(){
-//                 green.classList.toggle('greenBright');
-//             },400)
-//         }
-//         c++
-//         if (c=== arr.length)clearInterval(interval);
-//     },1000)
-//     }
-
 // #2.5 function to empty an array
 function emptyArray(arr){
     let j = arr.length
@@ -250,8 +217,10 @@ function emptyArray(arr){
 function gameEnded(){
     heading.innerText ="GAME OVER"
     wrongAudio.play()
+    
+    // scoreHeading.innerText= 0;
+    scoreHeading.innerText= `Score: ${userScore}`;
     userScore=0;
-    score.innerText=0;
     emptyArray(currGameList)
     emptyArray(currentLevelList);
     nextColorIndex =0;
@@ -271,8 +240,9 @@ function userInputCheck(){
         if (nextColorIndex === currGameList.length){
             console.log('randColor, playList and emptyArray on the currentLevelList are about to run in userINputCheck becase level was completed')
             userScore++
-            score.innerText=userScore
-            console.log('new score is',score)
+            // score.innerText=userScore
+            scoreHeading.innerText = `Score: ${userScore}`
+            // console.log('new score is',score)
             //current level list array sould now be made empty
             emptyArray(currentLevelList);
             randColor();
@@ -289,6 +259,8 @@ function userInputCheck(){
 
 //game code
 startGame.addEventListener('click',function(){
+    scoreHeading.innerText= `Score: ${userScore}`;
+
     heading.innerText ="Simon"
     gameOver = false;
     console.log('start game button was clicked')
