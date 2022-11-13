@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(198, 166, 228);
+    background-image: url("https://images.unsplash.com/photo-1617309215127-ebeb4eddeba5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8ZGFyayUyMHNreSUyMHdpdGglMjBzdGFyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
    
 }
 .game_button{
@@ -16,7 +16,7 @@ body{
 }
 .red{
     box-sizing: border-box;
-    background-color: rgb(255,0,0,.4);
+    background-color: rgb(154, 0, 0);
     border-top-left-radius: 100%;
     border:20px solid black;
     border-bottom: 10px solid black;
@@ -25,9 +25,6 @@ body{
 .redBright{
     background-color: rgb(255, 0, 0);
 }
-/* .red:hover{
-    background-color: rgb(255, 0, 0);
-} */
 .green{
     box-sizing: border-box;
     background-color: green;
@@ -36,44 +33,35 @@ body{
     border-right: 10px solid black;
     border-top: 10px solid black;
 }
-/* .green:hover{
-    background-color: rgba(0,255,0,.8);
-} */
 .greenBright{
     background-color: rgba(0,255,0,.8);
 }
 .blue{
     box-sizing: border-box;
-    background-color: rgba(0, 64, 255, 0.799);
+    background-color: rgb(0, 0, 143);
     border-top-right-radius: 100%;
     border:20px solid black;
     border-left: 10px solid black;
     border-bottom: 10px solid black;
 }
-/* .blue:hover{
-    background-color: blue;
-} */
 .blueBright{
-    background-color: blue;
+    background-color: rgb(0, 0, 255);
 }
 .yellow{
     box-sizing: border-box;
-    background-color: rgba(255,255,0,.4);
+    background-color: rgb(157, 157, 0);
     border-bottom-right-radius: 100%;
     border:20px solid black;
     border-left: 10px solid black;
     border-top: 10px solid black;
 }
-/* .yellow:hover{
-    background-color: yellow;
-} */
 .yellowBright{
     background-color: yellow;
 }
 .inner_space{
     width: 200px;
     height: 200px;
-    background-color: black;
+    background-color: rgb(0,0,0);
     position: absolute;
     top: 150px;
     left: 150px;
@@ -81,12 +69,9 @@ body{
 }
 .scoreHeading{
     display: inline-block;
-    font-size: 2em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 40px;
 }
 .heading{
+    color:aliceblue;
     font-family: 'Anton', sans-serif;
     font-size: 3em;
     text-align: center;
@@ -96,4 +81,14 @@ body{
 }
 button{
     font-size: 2em;
+    margin-right: 60px;
 }
+.myNav{
+    background: linear-gradient(45deg, red, blue); 
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.startGame{
+    margin-left: 10px;
+}
+
