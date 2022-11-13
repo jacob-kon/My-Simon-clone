@@ -68,7 +68,10 @@ body{
     border-radius: 50%;
 }
 .scoreHeading{
+    color:white;
+    padding-right: 100px;
     display: inline-block;
+    text-align: end;
 }
 .heading{
     color:aliceblue;
@@ -90,5 +93,10 @@ button{
 }
 .startGame{
     margin-left: 10px;
+    font-size: 1.3em;
 }
+.endGame{
+    font-size: 1.3em;
+}
+
 
