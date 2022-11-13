@@ -272,6 +272,13 @@ startGame.addEventListener('click',function(){
         randColor()
         playList(currGameList)
     }else{
+            // display a message to the user that in order to end game 
+            // the end game button must be pressed and then the start
+            //game button
+        setTimeout(()=>{
+            console.log('place holder')
+            // make message go away
+        },2000)
         console.log('cant do that in middle of game')
         console.log('to end game you must click end game button')
     }
