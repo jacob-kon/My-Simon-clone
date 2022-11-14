@@ -138,6 +138,30 @@ function randColor(){
     return currGameList
 }
 
+//function for light display at end of game
+function lightDisplay(){
+        //play some quick thing
+        // for (let i=0; i<15; i++){
+            red.classList.toggle('redBright');
+            setTimeout(function(){
+                red.classList.toggle('redBright')
+                blue.classList.toggle('blueBright');
+                setTimeout(function(){
+                    blue.classList.toggle('blueBright');
+                    yellow.classList.toggle('yellowBright');
+                    setTimeout(function(){
+                        yellow.classList.toggle('yellowBright')
+                        green.classList.toggle('greenBright');
+                        setTimeout(function(){
+                            green.classList.toggle('greenBright');
+                        },100)
+                    },100)
+                },100)
+            },100)
+        //}
+           
+}
+
 
 
 
@@ -151,11 +175,11 @@ function playList(arr){
     let soundSpeed = 1 // plays sound at normal speed
     let lightSpeed = 400 // lights up for .4 of a second
     let intervalSpeed =1000 //interval between colors in 1 sec
-    if (userScore < 4){
+    if (userScore < 3){
         soundSpeed = 1 // plays sound at normal speed
         lightSpeed = 400 // lights up for .4 of a second
         intervalSpeed =1000 //interval between colors in 1 sec
-    }else if(userScore >=4 && userScore < 8){
+    }else if(userScore >=3 && userScore < 8){
         soundSpeed = 1.3 // plays sound faster
         lightSpeed = 250 // lights up for less time
         intervalSpeed =700 //interval between colors in .7 sec
@@ -215,9 +239,10 @@ function emptyArray(arr){
 
 // 2.8 function to reset all variables when game ends
 function gameEnded(){
-    heading.innerText ="GAME OVER"
+    heading.innerText ="SIMON SAYS GAME OVER"
     wrongAudio.play()
-    
+    //put in display color here
+    lightDisplay()
     // scoreHeading.innerText= 0;
     scoreHeading.innerText= `Score: ${userScore}`;
     userScore=0;
@@ -276,11 +301,12 @@ startGame.addEventListener('click',function(){
             // the end game button must be pressed and then the start
             //game button
         setTimeout(()=>{
-            console.log('place holder')
+            heading.innerText ="SIMON"
             // make message go away
-        },2000)
+        },4000)
         console.log('cant do that in middle of game')
         console.log('to end game you must click end game button')
+        heading.innerText ="SIMON SAYS PLEASE END GAME BEFORE STARTING A NEW ONE!"
     }
     
 })
