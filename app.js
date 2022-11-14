@@ -6,9 +6,7 @@ let levelComplete = false;
 let currentChoise = 'none';
 let currentLevelList =[];
 let nextColorIndex =0;
-// let checkTry =0;
 let userScore =0;
-
 
 //game sounds
 let redAudio = new Audio('sounds/red.mp3')
@@ -21,20 +19,15 @@ let startGame =document.querySelector(".startGame")
 let scoreHeading = document.querySelector('.scoreHeading');
 let heading = document.querySelector('.heading')
 
-
-
-
 // selectors for the game buttons
 let red = document.querySelector(".red")
 let blue = document.querySelector(".blue")
 let yellow = document.querySelector(".yellow")
 let green = document.querySelector(".green")
 
-
 //event listeners for color clicks
 red.addEventListener('click',function(){
      if (currGameList.length>currentLevelList.length && gameOver=== false){
-        console.log('clicked red')
         red.classList.toggle('redBright');
             setTimeout(function(){
                 red.classList.toggle('redBright');
@@ -42,19 +35,15 @@ red.addEventListener('click',function(){
         currentChoise = 'red';
         currentLevelList.push('red')
         userInputCheck();
-        // nextColorIndex++
         if(gameOver===true){
            gameEnded()
         }else{
             redAudio.play();
         }
-       
     }
-    
 })
 blue.addEventListener('click',function(){
     if (currGameList.length>currentLevelList.length && gameOver=== false){
-        console.log('clicked blue')
         blue.classList.toggle('blueBright');
             setTimeout(function(){
                 blue.classList.toggle('blueBright');
@@ -62,18 +51,15 @@ blue.addEventListener('click',function(){
         currentChoise = 'blue';
         currentLevelList.push('blue')
         userInputCheck();
-        // nextColorIndex++;
         if(gameOver===true){
             gameEnded()
         }else{
             blueAudio.play();
         }
     }
-    
 })
 yellow.addEventListener('click',function(){
     if (currGameList.length>currentLevelList.length && gameOver=== false){
-        console.log('clicked yellow')
         yellow.classList.toggle('yellowBright');
             setTimeout(function(){
                 yellow.classList.toggle('yellowBright');
@@ -88,11 +74,9 @@ yellow.addEventListener('click',function(){
             yellowAudio.play();
         }
     }
-    
 })
 green.addEventListener('click',function(){
     if (currGameList.length>currentLevelList.length && gameOver=== false){
-        console.log('clicked green')
         green.classList.toggle('greenBright');
             setTimeout(function(){
                 green.classList.toggle('greenBright');
@@ -100,28 +84,22 @@ green.addEventListener('click',function(){
         currentChoise = 'green';
         currentLevelList.push('green')
         userInputCheck();
-        // nextColorIndex++;
         if(gameOver===true){
             gameEnded()
         }else{
             greenAudio.play();
         }
     }
-    
 })
-
 
 //event listner to end game at any time
 endGame.addEventListener('click',function(){
     if(gameOver === false){
-        console.log('clicked end game');
         gameOver=true;
         gameEnded()
-        console.log(`value for gameOver is: ${gameOver}`)
     }
-
 })
-
+//1.function to choose a random color and insert it to the currGameList
 function randColor(){
     let rand =Math.floor(Math.random()*4+1)
     gameLevel= gameLevel +1
@@ -138,10 +116,8 @@ function randColor(){
     return currGameList
 }
 
-//function for light display at end of game
+//2.function for light display at end of game
 function lightDisplay(){
-        //play some quick thing
-        // for (let i=0; i<15; i++){
             red.classList.toggle('redBright');
             setTimeout(function(){
                 red.classList.toggle('redBright')
@@ -158,39 +134,33 @@ function lightDisplay(){
                     },100)
                 },100)
             },100)
-        //}
            
 }
 
-
-
-
-//1.5 function to play the curr level back to user
+//3 function to play the curr level back to user
 function playList(arr){
     setTimeout(()=>{
-        console.log('get ready for next level')
     },1000)
-    console.log(`the current game list is ${currGameList}`)
     let c=0;
     let soundSpeed = 1 // plays sound at normal speed
     let lightSpeed = 400 // lights up for .4 of a second
     let intervalSpeed =1000 //interval between colors in 1 sec
     if (userScore < 3){
-        soundSpeed = 1 // plays sound at normal speed
-        lightSpeed = 400 // lights up for .4 of a second
-        intervalSpeed =1000 //interval between colors in 1 sec
+        soundSpeed = 1 
+        lightSpeed = 400 
+        intervalSpeed =1000 
     }else if(userScore >=3 && userScore < 8){
-        soundSpeed = 1.3 // plays sound faster
-        lightSpeed = 250 // lights up for less time
-        intervalSpeed =700 //interval between colors in .7 sec
+        soundSpeed = 1.3 
+        lightSpeed = 250 
+        intervalSpeed =700 
     }else if (userScore >= 8 && userScore <12){
-        soundSpeed = 1.4 // plays sound faster
-        lightSpeed = 200 // lights up for less time
-        intervalSpeed =550 //interval between colors in .55 sec
+        soundSpeed = 1.4 
+        lightSpeed = 200 
+        intervalSpeed =550 
     }else{
-        soundSpeed = 1.7 // plays sound faster
-        lightSpeed = 160 // lights up for less time
-        intervalSpeed =400 //interval between colors in .4 sec
+        soundSpeed = 1.7 
+        lightSpeed = 160 
+        intervalSpeed =400 
     }
     redAudio.playbackRate = soundSpeed
     blueAudio.playbackRate = soundSpeed
@@ -229,7 +199,7 @@ function playList(arr){
     },intervalSpeed)
     }
 
-// #2.5 function to empty an array
+// 4 function to empty an array
 function emptyArray(arr){
     let j = arr.length
     for(let i=0; i<j; i++){
@@ -237,13 +207,11 @@ function emptyArray(arr){
     }
 }
 
-// 2.8 function to reset all variables when game ends
+// 5 function to reset all variables when game ends
 function gameEnded(){
     heading.innerText ="SIMON SAYS GAME OVER"
     wrongAudio.play()
-    //put in display color here
     lightDisplay()
-    // scoreHeading.innerText= 0;
     scoreHeading.innerText= `Score: ${userScore}`;
     userScore=0;
     emptyArray(currGameList)
@@ -251,33 +219,19 @@ function gameEnded(){
     nextColorIndex =0;
 } 
 
-//#3 function to accept and test users input
+//6 function to accept and test users input
 function userInputCheck(){
-    console.log('user input check just ran')
-    
     if(currentChoise === currGameList[nextColorIndex]){
-        console.log('good job')
         nextColorIndex++
-        console.log(`nextcolorindex is:${nextColorIndex}`)
-        console.log('')
-        //if statement should run when level is complete
-        //and a new color is added to the current game list
         if (nextColorIndex === currGameList.length){
-            console.log('randColor, playList and emptyArray on the currentLevelList are about to run in userINputCheck becase level was completed')
             userScore++
-            // score.innerText=userScore
             scoreHeading.innerText = `Score: ${userScore}`
-            // console.log('new score is',score)
-            //current level list array sould now be made empty
             emptyArray(currentLevelList);
             randColor();
             playList(currGameList);
             nextColorIndex=0;
-            //time mechanizim goes here
         }
     }else{
-        console.log('sorry game over start again');
-        console.log('')
         gameOver =true;
         }
 }
@@ -285,35 +239,20 @@ function userInputCheck(){
 //game code
 startGame.addEventListener('click',function(){
     scoreHeading.innerText= `Score: ${userScore}`;
-
     heading.innerText ="Simon"
     gameOver = false;
-    console.log('start game button was clicked')
-    console.log('gameOver = false')
-    // score.innerText ='SCORE 0';
-    
-    //add a color to list
     if (currGameList.length === 0){
         randColor()
         playList(currGameList)
     }else{
-            // display a message to the user that in order to end game 
-            // the end game button must be pressed and then the start
-            //game button
         setTimeout(()=>{
             heading.innerText ="SIMON"
-            // make message go away
         },4000)
-        console.log('cant do that in middle of game')
-        console.log('to end game you must click end game button')
         heading.innerText ="SIMON SAYS PLEASE END GAME BEFORE STARTING A NEW ONE!"
     }
     
 })
 
-//need to add code to detect user idle to make game over if user 
-//doesnt respond in a given period of time.  found good article 
-//and bookmarked it.  leave this for last its not so simple
 
 
 
