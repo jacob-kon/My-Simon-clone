@@ -209,7 +209,7 @@ function emptyArray(arr){
 
 // 5 function to reset all variables when game ends
 function gameEnded(){
-    heading.innerText ="SIMON SAYS GAME OVER"
+    heading.innerText ="DAVE SAYS GAME OVER"
     wrongAudio.play()
     lightDisplay()
     scoreHeading.innerText= `Score: ${userScore}`;
@@ -239,16 +239,16 @@ function userInputCheck(){
 //game code
 startGame.addEventListener('click',function(){
     scoreHeading.innerText= `Score: ${userScore}`;
-    heading.innerText ="Simon"
+    heading.innerText ="Dave"
     gameOver = false;
     if (currGameList.length === 0){
         randColor()
         playList(currGameList)
     }else{
         setTimeout(()=>{
-            heading.innerText ="SIMON"
+            heading.innerText ="DAVE"
         },4000)
-        heading.innerText ="SIMON SAYS PLEASE END GAME BEFORE STARTING A NEW ONE!"
+        heading.innerText ="DAVE SAYS PLEASE END GAME BEFORE STARTING A NEW ONE!"
     }
     
 })
