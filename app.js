@@ -209,7 +209,7 @@ function emptyArray(arr){
 
 // 5 function to reset all variables when game ends
 function gameEnded(){
-    heading.innerText ="DAVE SAYS GAME OVER"
+    heading.innerText ="GAME OVER"
     wrongAudio.play()
     lightDisplay()
     scoreHeading.innerText= `Score: ${userScore}`;
@@ -239,16 +239,17 @@ function userInputCheck(){
 //game code
 startGame.addEventListener('click',function(){
     scoreHeading.innerText= `Score: ${userScore}`;
-    heading.innerText ="Dave"
+    heading.innerText ="Follow Me"
     gameOver = false;
+    console.log('t',currGameList.length)
     if (currGameList.length === 0){
         randColor()
         playList(currGameList)
     }else{
         setTimeout(()=>{
-            heading.innerText ="DAVE"
+            heading.innerText ="Follow Me"
         },4000)
-        heading.innerText ="DAVE SAYS PLEASE END GAME BEFORE STARTING A NEW ONE!"
+        heading.innerText ="PLEASE END GAME BEFORE STARTING A NEW ONE!"
     }
     
 })
