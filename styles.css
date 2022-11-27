@@ -154,6 +154,9 @@ button{
         left: 105px;
         border-radius: 50%;
     }
+    .scoreHeading{
+        font-size: 20px;
+    }
 }
 
 
